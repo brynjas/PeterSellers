@@ -1,7 +1,6 @@
 *.sw*
 *~
 bin/
-node_modules/
 src/vendor/
 build/
 coverage/
