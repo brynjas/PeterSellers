@@ -1,1 +1,22 @@
-<div> Hér ætti að birtast listi af seljendum - TODO: útfæra það!</div>
+<div class="container">
+  <h2>Sellers</h2>
+
+	<table class="table table-striped">
+		<caption>Sellers</caption>
+		<thead>
+			<tr>
+				<th>Sellers name</th>
+				<th>Category</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="s in sellers">
+				<td>{{s.name}}</td>
+				<td>{{s.category}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+</div>
