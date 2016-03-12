@@ -10,7 +10,7 @@
 		</thead>
 		<tbody  data-link="row" class="rowlink">
 			<tr ng-repeat="s in sellers track by s.name" ts-repeat>
-				<td><a ng-href="#/sellerdetails/{{s.id}}">{{s.name}}</a></td>
+				<td><a ng-href="#/sellerdetails/{{s.id}}">{{s.id}} {{s.name}}</a></td>
 				<td> {{s.category}} </a></td>
 			</tr>
 		</tbody>
