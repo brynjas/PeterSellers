@@ -9,6 +9,7 @@ angular.module("project3App", ["ngRoute", "ui.bootstrap","tableSort" ,"sharedSer
 		controller: "SellerDetailsController",
 		templateUrl: "components/sellerdetails/sellerdetails.html"
 
-	});
+	
+    });
 
 });

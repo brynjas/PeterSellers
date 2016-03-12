@@ -1,10 +1,10 @@
 "use strict";
 
-angular.module("project3App").controller("SellerDetailsController",
-function SellerDetailsController($scope, $routeParams, AppResource) {
+angular.module("project3App").controller("ProductsController",
+function ProductsController($scope, $routeParams, AppResource) {
 	// TODO: load data from AppResource! Also, add other methods, such as to
 	// add/update sellers etc.
-	
+
 	var id = $routeParams.id;
 	console.log("ID: " + id);
 
@@ -17,8 +17,6 @@ function SellerDetailsController($scope, $routeParams, AppResource) {
 		console.log("SELLER: " + seller);
 		$scope.seller = seller;
 	});
-
-
 	
-
+	
 });

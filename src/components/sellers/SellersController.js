@@ -6,6 +6,8 @@ function SellersController($scope, AppResource) {
 	// add/update sellers etc.
 	AppResource.getSellers().success(function(sellers) {
 		$scope.sellers = sellers;
-	})
+	});
+
+	
 
 });
