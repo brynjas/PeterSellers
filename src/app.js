@@ -5,5 +5,10 @@ angular.module("project3App", ["ngRoute", "ui.bootstrap","tableSort" ,"sharedSer
 	$routeProvider.when("/", {
 		controller: "SellersController",
 		templateUrl: "components/sellers/sellers.html"
+	}).when("/sellerdetails/:id" , {
+		controller: "SellerDetailsController",
+		templateUrl: "components/sellerdetails/sellerdetails.html"
+
 	});
+
 });
