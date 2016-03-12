@@ -12,4 +12,10 @@ function SellerDetailsController($scope, $routeParams, AppResource) {
 		console.log("PRODUCTS: " + products);
 		$scope.products = products;
 	});
+
+	AppResource.getSellerDetails(parseInt(id)).success(function(seller){
+		console.log("SELLER: " + seller);
+		$scope.seller = seller;
+	});
+
 });
