@@ -12,3 +12,4 @@ typings/
 _SpecRunner.html
 .idea/
 npm-debug.log
+node_modules
