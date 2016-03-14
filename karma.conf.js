@@ -27,6 +27,8 @@ module.exports = function(config) {
       'src/vendor/angular-toastr/dist/angular-toastr.js',
       'src/vendor/angular-translate/angular-translate.js',
       'src/vendor/angular-mocks/angular-mocks.js',
+      'src/vendor/angular-tablesort/js/angular-tablesort.js',
+      //'src/vendor/angular-tablesort/angular-tablesort.js',
       'src/shared/app.js',
       'src/shared/**/*.js',
       'src/app.js',

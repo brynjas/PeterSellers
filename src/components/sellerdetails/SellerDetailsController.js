@@ -18,7 +18,4 @@ function SellerDetailsController($scope, $routeParams, AppResource) {
 		$scope.seller = seller;
 	});
 
-
-	
-
 });
