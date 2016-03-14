@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("project3App", ["ngRoute", "ui.bootstrap","tableSort" ,"sharedServices"])
+angular.module("project3App", ["ngRoute", "ui.bootstrap","tableSort" ,"sharedServices", "toastr"])
 .config(function ($routeProvider) {
 	$routeProvider.when("/", {
 		controller: "SellersController",
@@ -8,8 +8,6 @@ angular.module("project3App", ["ngRoute", "ui.bootstrap","tableSort" ,"sharedSer
 	}).when("/sellerdetails/:id" , {
 		controller: "SellerDetailsController",
 		templateUrl: "components/sellerdetails/sellerdetails.html"
-
-	
     });
 
 });
@@ -17,6 +15,28 @@ angular.module("project3App", ["ngRoute", "ui.bootstrap","tableSort" ,"sharedSer
 "use strict";
 
 angular.module("sharedServices", ["toastr"]);
+"use strict";
+
+angular.module("project3App").controller("ProductsController",
+function ProductsController($scope, $routeParams, AppResource) {
+	// TODO: load data from AppResource! Also, add other methods, such as to
+	// add/update sellers etc.
+
+	var id = $routeParams.id;
+	console.log("ID: " + id);
+
+	AppResource.getSellerProducts(parseInt(id)).success(function(products){
+		console.log("PRODUCTS: " + products);
+		$scope.products = products;
+	});
+
+	AppResource.getSellerDetails(parseInt(id)).success(function(seller){
+		console.log("SELLER: " + seller);
+		$scope.seller = seller;
+	});
+	
+	
+});
 "use strict";
 
 /**
@@ -198,28 +218,6 @@ function AppResource() {
 });
 "use strict";
 
-angular.module("project3App").controller("ProductsController",
-function ProductsController($scope, $routeParams, AppResource) {
-	// TODO: load data from AppResource! Also, add other methods, such as to
-	// add/update sellers etc.
-
-	var id = $routeParams.id;
-	console.log("ID: " + id);
-
-	AppResource.getSellerProducts(parseInt(id)).success(function(products){
-		console.log("PRODUCTS: " + products);
-		$scope.products = products;
-	});
-
-	AppResource.getSellerDetails(parseInt(id)).success(function(seller){
-		console.log("SELLER: " + seller);
-		$scope.seller = seller;
-	});
-	
-	
-});
-"use strict";
-
 angular.module("project3App").controller("SellerDetailsController",
 function SellerDetailsController($scope, $routeParams, AppResource) {
 	// TODO: load data from AppResource! Also, add other methods, such as to
@@ -241,16 +239,79 @@ function SellerDetailsController($scope, $routeParams, AppResource) {
 });
 "use strict";
 
+angular.module("project3App").controller("SellerDialogController",
+	function SellerDialogController($scope, $rootScope, $uibModal) {
+		console.log("THE DIALOG is called");
+		$scope.seller = {
+			id: $rootScope.sellerCount+1,
+			name: "",
+			category: "",
+			imagePath: ""
+		};
+		
+		$scope.onOk = function onOk() {
+			$scope.$close($scope.seller);
+		};
+
+		$scope.onCancel = function onCancel() {
+			$scope.$dismiss('cancel');
+		};
+
+	}
+);
+"use strict";
+
 angular.module("project3App").controller("SellersController",
-function SellersController($scope, AppResource) {
+function SellersController($scope, $rootScope, AppResource, $uibModal, toastr) {
 	// TODO: load data from AppResource! Also, add other methods, such as to
 	// add/update sellers etc.
+	//var sellerCount = 0;
+
 	AppResource.getSellers().success(function(sellers) {
 		$scope.sellers = sellers;
+		console.log(sellers.length);
+		$rootScope.sellerCount = sellers.length;
 	});
 
-	
+	$scope.onAddSeller = function onAddSeller() {
+		console.log("Add seller button");
+		var hlutur = $uibModal.open({
+					controller: 'SellerDialogController',
+					templateUrl: 'components/sellerdialog/sellerdialog.html'
+		});
 
+		hlutur.result.then(function(new_seller) {
+			console.log("draslid heppnadist!!!!");
+			console.log(hlutur.result);
+			console.log(new_seller);
+			AppResource.addSeller(new_seller).success(function(seller) {
+				console.log("stuff happened");
+				$rootScope.sellerCount++;
+				toastr.success("Seller created","Success");
+			});
+
+			}, function() {
+				console.log("Shit was cancelled");
+		});
+	};
+
+});
+"use strict";
+
+angular.module("project3App").directive("myValidation", function() {
+	return {
+		require: 'ngModel',
+		link: function(scope, elem, attr, ngModel) {
+			ngModel.$parsers.unshift(function(value) {
+				if((value === undefined) || (value === "") || (value === null)) {
+					return false;
+				}
+				else {
+					return true;
+				}
+			});
+		}
+	};
 });
 "use strict";
 

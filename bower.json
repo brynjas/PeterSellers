@@ -21,6 +21,8 @@
     "angular-translate": "~2.10.0",
     "angular-toastr": "~1.7.0",
     "angular-mocks": "~1.5.0",
-    "lodash": "~4.5.1"
+    "lodash": "~4.5.1",
+    "ihover": "~1.0.0",
+    "angular-tablesort": "~1.1.2"
   }
 }
