@@ -18,4 +18,28 @@ function SellerDetailsController($scope, $routeParams, AppResource) {
 		$scope.seller = seller;
 	});
 
+
+	$scope.tabs = [{
+      
+      title: 'All Products',
+      url: 'AllProducts.html'
+    },{
+      title: 'Top Ten',
+      url: 'TopTen.html'
+    }];
+
+    $scope.activeTab = 'AllProducts.html';  
+
+    $scope.onClick = function(tab) {
+      $scope.activeTab = tab.url;
+    };
+
+    $scope.isActive = function(tabUrl) {
+      return tabUrl === $scope.activeTab;
+    };
+
+    
+   
+
+
 });

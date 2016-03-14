@@ -3,7 +3,7 @@
 	<div class="container" style="margin-top:100px; padding: 40px" >
 		<div class="row"> 
 			<div class="col-md-2"> 
-			 <img class="img-responsive img-thumbnail" src="{{seller.imagePath}}" alt="{{seller.name}}" style="width:250px;height:200px"> </img>
+			 <img class="img-responsive img-thumbnail" src="{{seller.imagePath}}" alt="{{seller.name}}" style="width:150px;height:150px"> </img>
 
 			</div>
 			<div class="col-md-6"> 
@@ -18,11 +18,24 @@
 	</div>	
 	<hr />
 
-	<div class="container">
-	 
-	</div>
 
-	<div class="container" style="padding: 40px">
+	<div class="row" style="padding-left:60px">
+    	<ul class="list-inline">
+      		<li ng-repeat="tab in tabs" ng-class="{active:isActive(tab.tabUrl)}"  ng-click="onClick(tab)" >{{tab.title}}
+      		</li>
+      		<hr />
+
+    	</ul>
+    </div>
+      	<div ng-include="activeTab"></div>
+	<hr />
+
+  	</div>
+
+ <script type="text/ng-template" id="AllProducts.html">
+	
+	
+	<div class="container">
 	
 		<ul class="list-inline">
 			<li  ng-repeat="p in products"> 
@@ -38,12 +51,14 @@
         	 </li> 
        </ul> 
      </div>
+  </script>
+
+  	
 
 
-
-
-	<div class="container" style="padding: 40px">
-		<h2> This should got to the Top 10 tab</h2>
+  <script type="text/ng-template" id="TopTen.html">
+  
+	<div class="container">
 		<ul class="list-inline">
 			<li  ng-repeat="p in products | orderBy: '-quantitySold' | limitTo:10 "> 
 			 <div class="ih-item square effect3 bottom_to_top"><a class="disabled">
@@ -58,10 +73,11 @@
         	 </li> 
        </ul> 
      </div>
-	
-	
-			 
-		<!--{{products}} -->
+    
+  </script>
+</div>
+
+
 		
 
 
