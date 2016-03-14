@@ -7,15 +7,14 @@
 <!--	<link rel="stylesheet" href="styles/vendor.css">
 	<link rel="stylesheet" href="styles/app.css"> -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!--<script src="vendor/angular/angular.js"></script>
+	<script src="app.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   	<style src="tablesort.css"></style>
 
-  	 <link rel="stylesheet" href="vendor/ihover/src/ihover.css"></link>
-
-
-
-
+  	<link rel="stylesheet" href="src/vendor/ihover/src/ihover.css">
+  	<link rel="stylesheet" href="src/vendor/angular-toastr/dist/angular-toastr.css">
 
 </head>
 <body>
@@ -24,41 +23,16 @@
 	</main>
 
 	<toaster-container></toaster-container>
-
-	<script src="vendor/jquery/dist/jquery.js"></script>
-	<script src="vendor/angular/angular.js"></script>
-	<!--<script src="vendor/angular-ui-tabs/dist/angular-tabs.js"></script>-->
-
-	<script src="vendor/angular-route/angular-route.js"></script>
-	<script src="vendor/angular-bootstrap/ui-bootstrap.js"></script>
-	<script src="vendor/angular-toastr/dist/angular-toastr.js"></script>
-	<!--<script src="vendor/bootstrap/dist/js/bootstrap.js"></script>-->
-	<script src="shared/app.js"></script>
-
-	<script src="vendor/angular-tablesort/js/angular-tablesort.js"></script>
-	<script src="vendor/angular-translate/angular-translate.js"></script>
-	<!--<script src="vendor/ihover/dist/script/app.js"></script> -->
-
-	<script src="app.js"></script>
-	<script src="components/resource/AppResource.js"></script>
 	
-	<!-- CONTROLLERS-->
-	<script src="components/sellers/SellersController.js"></script>
-	<script src="components/sellerdetails/SellerDetailsController.js"></script>
-	<script src="components/product/ProductsController.js"></script>
-
-
-	<!-- inject:vendor:js 
-	<script src="node_modules/postcss/lib/vendor.js"></script>
-
-
-
-	<script src="src/app.js"></script>
+	<!-- inject:vendor:js -->
+	<!-- endinject -->
+	<script src="src/vendor/angular-tablesort/js/angular-tablesort.js"></script>
+	<!-- inject:app:js -->
 	<!-- endinject -->
 
-	<!-- inject:templates:js 
-	<script src="gulp/tasks/templates.js"></script>
+	<!-- inject:templates:js -->
 	<!-- endinject -->
+
 </body>
 
 </html>

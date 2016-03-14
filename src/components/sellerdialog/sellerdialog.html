@@ -1,0 +1,25 @@
+<div class="container">
+	<h2>Sellers create dialog</h2>
+
+	<form name="myForm">
+		<input type="text" name="sellerName" ng-model="seller.name" required>Name</input>
+		<span style="color:red" ng-show="myForm.sellerName.$dirty && myForm.sellerName.$error.required">Name required ma-focka</span>
+		</br>
+
+		<input type="text" name="category" ng-model="seller.category" required>Category</input>
+		<span style="color:red" ng-show="myForm.category.$dirty && myForm.category.$error.required">Category required ma-focka</span>
+		</br>
+
+		<input type="text" name="imagePath" ng-model="seller.imagePath" required>Image Path</input>
+		<span style="color:red" ng-show="myForm.imagePath.$dirty && myForm.imagePath.$error.required">Image Path required ma-focka</span>
+		</br>
+		
+		</br>
+
+		<button ng-click="onOk()" ng-disabled="myForm.sellerName.$error.required || myForm.category.$error.required || myForm.imagePath.$error.required">ok</button>
+		<button ng-click="onCancel()">cancel</button>
+		<p>{{myForm.sellerName.$error.required}}</p>
+		</br>
+	</form>
+
+</div>
