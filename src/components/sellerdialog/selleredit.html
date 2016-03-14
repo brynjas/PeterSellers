@@ -1,0 +1,19 @@
+<div class="container">
+	<h2>Edit seller</h2>
+	<form name="myForm2">
+		<input name="sellerName" ng-model="seller.name" required>
+		<span style="color:red" ng-show="myForm2.sellerName.$dirty && myForm2.sellerName.$error.required">Name required ma-focka</span>
+		</br>
+
+		<input name="category" ng-model="seller.category" required>
+		<span style="color:red" ng-show="myForm2.category.$dirty && myForm2.category.$error.required">category required ma-focka</span>
+		</br>
+		
+		<input name="imagePath" ng-model="seller.imagePath" required>
+		<span style="color:red" ng-show="myForm2.imagePath.$dirty && myForm2.imagePath.$error.required">image path required ma-focka</span>
+		</br>
+
+		<button ng-click="onSave()" ng-disabled="myForm2.sellerName.$error.required || myForm2.category.$error.required || myForm2.imagePath.$error.required">Save</button>
+		<button ng-click="onCancel()">Cancel</button>
+	</form>
+</div>
