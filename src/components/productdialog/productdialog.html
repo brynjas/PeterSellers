@@ -5,16 +5,16 @@
 		<span style="color:red" ng-show="myForm.productName.$dirty && myForm.productName.$error.required">Name required ma-focka</span>
 		</br>
 
-		<input type="text" name="price" ng-model="product.price" required>Category</input>
-		<span style="color:red" ng-show="myForm.price.$dirty && myForm.price.$error.required">Price required ma-focka</span>
+		<input type="number" name="price" ng-model="product.price" required>Price</input>
+		<span style="color:red" ng-show="myForm.price.$dirty && (myForm.price.$error.required || !myForm.price.$valid)">Price must be a number</span>
 		</br>
 
-		<input type="text" name="quantitySold" ng-model="product.quantitySold" required>quantitySold</input>
-		<span style="color:red" ng-show="myForm.quantitySold.$dirty && myForm.quantitySold.$error.required">quantitySold required ma-focka</span>
+		<input type="number" name="quantitySold" ng-model="product.quantitySold" required>quantitySold</input>
+		<span style="color:red" ng-show="myForm.quantitySold.$dirty && (myForm.quantitySold.$error.required || !myForm.quantitySold.$valid)">quantitySold must be a number</span>
 		</br>
 
-		<input type="text" name="quantityInStock" ng-model="product.quantityInStock" required>quantityInStock</input>
-		<span style="color:red" ng-show="myForm.quantityInStock.$dirty && myForm.quantityInStock.$error.required">quantityInStock required ma-focka</span>
+		<input type="number" name="quantityInStock" ng-model="product.quantityInStock" required>quantityInStock</input>
+		<span style="color:red" ng-show="myForm.quantityInStock.$dirty && (myForm.quantityInStock.$error.required || !myForm.quantityInStock.$valid)">quantityInStock must be a number</span>
 		</br>
 
 		<input type="text" name="imagePath" ng-model="product.imagePath" required>Image Path</input>
@@ -23,7 +23,7 @@
 		
 		</br>
 
-		<button ng-click="onOk()" ng-disabled="myForm.productName.$error.required || myForm.price.$error.required || myForm.quantitySold.$error.required || myForm.quantityInStock.$error.required || myForm.imagePath.$error.required">{{confirm}}</button>
+		<button ng-click="onOk()" ng-disabled="myForm.productName.$error.required || myForm.price.$error.required || !myForm.price.$valid || myForm.quantitySold.$error.required || !myForm.quantitySold.$valid || myForm.quantityInStock.$error.required || !myForm.quantityInStock.$valid || myForm.imagePath.$error.required">{{confirm}}</button>
 		<button ng-click="onCancel()">cancel</button>
 		</br>
 	</form>
