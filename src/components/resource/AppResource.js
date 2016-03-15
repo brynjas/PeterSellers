@@ -169,10 +169,26 @@ function AppResource() {
 			}
 
 			return mockHttpPromise(success, product);
+		},
+
+		updateProduct: function updateProduct(product) {
+			var success = false;
+			var current = _.find(mockProducts, function(o){ return o.product.id === product.id;});
+			if (current !== null) {
+				current.product.name = product.name;
+				current.product.price = product.price;
+				current.product.quantitySold = product.quantitySold;
+				current.product.quantityInStock = product.quantityInStock;
+				current.product.imagePath = product.imagePath;
+				success = true;
+			}
+			return mockHttpPromise(success, product);
+		},
+
+		getProductCount: function getProductCount() {
+			return mockHttpPromise(true, mockProducts.length);
 		}
 
-		// TODO: the updateProduct() function is left as an exercise to
-		// the reader...
 	};
 
 	return mockResource;
