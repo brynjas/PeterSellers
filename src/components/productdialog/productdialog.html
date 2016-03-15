@@ -1,11 +1,11 @@
 <div class="container">
-	<h3>Edit Product</h3>
+	<h3>{{header}}</h3>
 	<hr />
 	<form name="myForm">
 	 	<div class="form-group row">
 	    	<label for="productName" class="col-sm-2 form-control-label">Name</label>
 	    	<div class="col-sm-4">
-				<input class="form-control" class="form-control" type="text"  name="productName" ng-model="product.name" required></input>	
+				<input class="form-control" type="text"  name="productName" ng-model="product.name" required></input>	
 				<span style="color:red" ng-show="myForm.productName.$dirty && myForm.productName.$error.required">Name Required</span>
 				</br>
 			</div>
@@ -14,7 +14,7 @@
 	 	<div class="form-group row">
 	    	<label for="price" class="col-sm-2 form-control-label">Price</label>
 	    	<div class="col-sm-4">
-				<input class="form-control" class="form-control" type="text"  name="price" ng-model="product.price" required></input>	
+				<input class="form-control"  type="number"  name="price" ng-model="product.price" required></input>	
 				<span style="color:red" ng-show="myForm.price.$dirty && (myForm.price.$error.required || !myForm.price.$valid)">Price must be a number</span>
 				</br>
 			</div>
@@ -23,8 +23,9 @@
 		<div class="form-group row">
 	    	<label for="quantitySold" class="col-sm-2 form-control-label">Quantity Sold</label>
 	    	<div class="col-sm-4">
-				<input class="form-control" class="form-control" type="text"  name="quantitySold" ng-model="product.quantitySold"  required></input>	
+				<input class="form-control"  type="number"  name="quantitySold" ng-model="product.quantitySold"  required></input>	
 				<span style="color:red" ng-show="myForm.quantitySold.$dirty && (myForm.quantitySold.$error.required || !myForm.quantitySold.$valid)">Quantity Sold must be a number</span>
+				</br>
 			</div>
 		</div>
 
@@ -32,7 +33,7 @@
 	    	<label for="quantityInStock" class="col-sm-2 form-control-label">Quantity In Stock
 	    	</label>
 	    	<div class="col-sm-4">
-				<input class="form-control" class="form-control" type="text"  name="quantityInStock" ng-model="product.quantityInStock"  required></input>	
+				<input class="form-control"  type="number"  name="quantityInStock" ng-model="product.quantityInStock"  required></input>	
 				<span style="color:red" ng-show="myForm.quantityInStock.$dirty && (myForm.quantityInStock.$error.required || !myForm.quantityInStock.$valid)">Quantity In Stock must be a number</span>
 				</br>
 			</div>
@@ -47,26 +48,17 @@
 				<span style="color:red" ng-show="myForm.imagePath.$dirty && myForm.imagePath.$error.required">Image Path required</span>
 				</br>
 			</div>
-		</div>
-
-
-		
+		</div>	
 		</br>
-
-		
-		
-
-	
-
-<div class="form-group row">
+		<div class="form-group row">
   				<div class="col-sm-4"> </div>
   				<div class="col-sm-1">
 
-					<button type="submit" class="btn btn-success" ng-click="onOk()" ng-disabled="myForm.productName.$error.required || myForm.price.$error.required || !myForm.price.$valid || myForm.quantitySold.$error.required || !myForm.quantitySold.$valid || myForm.quantityInStock.$error.required || !myForm.quantityInStock.$valid || myForm.imagePath.$error.required">{{confirm}}
+					<button class="btn btn-success" ng-click="onOk()" ng-disabled="myForm.productName.$error.required || myForm.price.$error.required || !myForm.price.$valid || myForm.quantitySold.$error.required || !myForm.quantitySold.$valid || myForm.quantityInStock.$error.required || !myForm.quantityInStock.$valid || myForm.imagePath.$error.required">{{confirm}}
 					</button>
 				</div>
 				<div class="col-sm-1">
-					<button  button type="submit" class="btn btn-danger" ng-click="onCancel()">Cancel</button>
+					<button class="btn btn-danger" ng-click="onCancel()">Cancel</button>
 					</br>
 
 				</div>

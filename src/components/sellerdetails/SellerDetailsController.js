@@ -40,9 +40,10 @@ function SellerDetailsController($scope, $routeParams, AppResource, $uibModal, t
 		});
 
 		hlutur.result.then(function(new_product) {
-			AppResource.addSellerProduct($scope.seller.id, new_product).success(function(seller) {
+			AppResource.addSellerProduct($scope.seller.id, new_product).success(function(the_new_product) {
 				console.log("stuff happened");
 				toastr.success("Product added","Success");
+				$scope.products.push(the_new_product);
 			});
 			}, function() {
 				console.log("Shit was cancelled");
