@@ -26,7 +26,7 @@ function SellersController($scope, $rootScope, AppResource, $uibModal, toastr) {
 
 		hlutur.result.then(function(editedSeller) {
 			AppResource.updateSeller(parseInt(editedSeller.id), editedSeller).success(function(seller) {
-				console.log("Heppnadist!!");
+				toastr.success("Seller Updated", "Success");
 			});
 		}, function() {
 			console.log("Failadi :(");

@@ -69,7 +69,7 @@ function SellerDetailsController($scope, $routeParams, AppResource, $uibModal, t
 
 		hlutur.result.then(function(editedProduct) {
 			AppResource.updateProduct(editedProduct).success(function() {
-				console.log("Heppnadist");
+				toastr.success("Product updated","Success");
 			});
 		}, function() {
 			console.log("Failadi");
