@@ -1,19 +1,50 @@
+
+
+
+
 <div class="container">
-	<h2>Edit seller</h2>
+	<h3>Edit Seller</h3>
+	<hr />
 	<form name="myForm2">
-		<input name="sellerName" ng-model="seller.name" required>
-		<span style="color:red" ng-show="myForm2.sellerName.$dirty && myForm2.sellerName.$error.required">Name required ma-focka</span>
+ 		<div class="form-group row">
+	      <label for="sellerName" class="col-sm-1 form-control-label">Name</label>
+			<div class="col-sm-4">
+				<input class="form-control" type="text"  name="sellerName" ng-model="seller.name" required> </input>	
+				<span style="color:red" ng-show="myForm2.sellerName.$dirty && myForm2.sellerName.$error.required">Name required!!</span>
+				</br>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="category" class="col-sm-1 form-control-label">Category</label>
+	    	<div class="col-sm-4">
+				<input class="form-control" type="text"  type="text" name="category" ng-model="seller.category" required></input>
+				<span style="color:red" ng-show="myForm2.category.$dirty && myForm2.category.$error.required">Category required!!</span>
+				</br>
+			</div>
+		</div>
+
+		<div class="form-group row">
+		 <label for="imagePath" class="col-sm-1 form-control-label">Image Url </label>
+	    	<div class="col-sm-6">
+				<input type="text" name="imagePath" ng-model="seller.imagePath" required></input>
+				<span style="color:red" ng-show="myForm2.imagePath.$dirty && myForm2.imagePath.$error.required">Image Path required!!</span>
+				</br>
+			</div>
+		</div>
 		</br>
 
-		<input name="category" ng-model="seller.category" required>
-		<span style="color:red" ng-show="myForm2.category.$dirty && myForm2.category.$error.required">category required ma-focka</span>
-		</br>
-		
-		<input name="imagePath" ng-model="seller.imagePath" required>
-		<span style="color:red" ng-show="myForm2.imagePath.$dirty && myForm2.imagePath.$error.required">image path required ma-focka</span>
-		</br>
-
-		<button ng-click="onSave()" ng-disabled="myForm2.sellerName.$error.required || myForm2.category.$error.required || myForm2.imagePath.$error.required">Save</button>
-		<button ng-click="onCancel()">Cancel</button>
+		<div class="form-group row">
+  			<div class="col-sm-4"> </div>
+  			<div class="col-sm-1">
+				<button  class="btn btn-success" ng-click="onSave()" ng-disabled="myForm2.sellerName.$error.required || myForm2.category.$error.required || myForm2.imagePath.$error.required">Save</button>
+			</div>
+			<div class="col-sm-1">
+				<button button type="submit" class="btn btn-danger" ng-click="onCancel()">Cancel</button>
+			</div>
+		</div>
+	
 	</form>
 </div>
+
+
+
