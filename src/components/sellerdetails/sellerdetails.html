@@ -19,39 +19,59 @@
 	<hr />
 
 
-	<div class="row" style="padding-left:60px">
+	<!--<div class="row" style="padding-left:60px">
     	<ul class="nav nav-tabs" style="border-bottom: none!important">
       		<li ng-repeat="tab in tabs" ng-class="{active:isActive(tab.tabUrl)}"  ng-click="onClick(tab)"> <a  class="disabled">{{tab.title}} </a>
       		</li>
-      		
-
     	</ul>
+    </div> -->
 
+    <div class="row" style="padding-left:60px">
+    	<ul class="nav nav-tabs" role="tablist" style="border-bottom:none!important" >
+
+      		<li ng-repeat="tab in tabs" ng-class="{active:isActive(tab.tabUrl)}"  ng-click="onClick(tab)" style="border-style: outset;
+    border-width: 1px 1px 0 1px" > <a  class="disabled">{{tab.title}} </a>
+      		</li>
+    	</ul>
     </div>
-    <hr />
-      	<div ng-include="activeTab"></div>
+   
+    <div ng-include="activeTab" ></div>
 
-  	</div>
+ </div>
 
 
  <script type="text/ng-template" id="AllProducts.html">
 	
 	
-	<div class="container">
-	
-		<ul class="list-inline">
-			<li  ng-repeat="p in products"> 
-			 <div class="ih-item square effect3 bottom_to_top"><a class="disabled">
-			 	<div class="img">
-			 		<img  src="{{p.imagePath}}" alt="{{p.name}}"> </img>
-				</div>
+	<div class="container-fluid" style="padding-top:40px;">
+		<div class="row">
+			<div class="col-sm-1"> </div>
+			<div class="col-sm-10">
+				<ul class="list-inline">
+					<li  ng-repeat="p in products"> 
+			 			<div class="ih-item square effect3 bottom_to_top"><a class="disabled">
+			 				<div class="img">
+			 				<img  src="{{p.imagePath}}" alt="{{p.name}}"> </img>
+							</div>
 			
-			<div class="info">
-          <h3>{{p.name}}</h3>
-          <p>verð {{p.price}}</p>
-        </div></a></div>
-        	 </li> 
-       </ul> 
+						<div class="info">	
+	          				<h3>{{p.name}}</h3>
+	          				<div class="row">
+								<div class="col-sm-3">
+									<button type="button" class="btn btn-info btn-sm">
+	         			 				<span class="glyphicon glyphicon-edit"></span>
+	       				 			</button> 
+	       				 		</div>
+	       				 		<div class="col-sm-5">
+	          						<p>verð {{p.price}}</p>
+	          					</div>
+          					</div>
+        				</div></a></div>
+        	 		</li> 
+       			</ul> 
+       		</div>
+       		<div class="col-sm-1"> </div>
+      	 </div>
      </div>
   </script>
 
@@ -59,23 +79,36 @@
 
 
   <script type="text/ng-template" id="TopTen.html">
-  
-	<div class="container">
-		<ul class="list-inline">
-			<li  ng-repeat="p in products | orderBy: '-quantitySold' | limitTo:10 "> 
-			 <div class="ih-item square effect3 bottom_to_top"><a class="disabled">
-			 	<div class="img">
-			 		<img  src="{{p.imagePath}}" alt="{{p.name}}"> </img>
-				</div>
-			
-			<div class="info">
-          <h3>{{p.name}}</h3>
-          <p>verð {{p.price}} Magn {{p.quantitySold}}</p>
-        </div></a></div>
-        	 </li> 
-       </ul> 
+	<div class="container-fluid" style="padding-top:40px;">
+		<div class="row">
+			<div class="col-sm-1"> </div>
+			<div class="col-sm-10">
+				<ul class="list-inline">
+				    <li  ng-repeat="p in products | orderBy: '-quantitySold' | limitTo:10 "> 
+						<div class="ih-item square effect3 bottom_to_top"><a class="disabled">
+							<div class="img">
+							 	<img  src="{{p.imagePath}}" alt="{{p.name}}"> </img>
+							</div>
+						<div class="info">	
+	          				<h3>{{p.name}}</h3>
+	          				<div class="row">
+								<div class="col-sm-3">
+									<button type="button" class="btn btn-info btn-sm">
+	         			 				<span class="glyphicon glyphicon-edit"></span>
+	       				 			</button> 
+	       				 		</div>
+	       				 		<div class="col-sm-5">
+	          						<p>verð {{p.price}}</p>
+	          					</div>
+          					</div>
+        					</div></a></div>
+        	 		</li> 
+       			</ul> 
+       		</div>
+       		<div class="col-sm-1"> </div>
+      	 </div>
      </div>
-    
+
   </script>
 </div>
 
@@ -83,4 +116,3 @@
 		
 
 
-</div>
