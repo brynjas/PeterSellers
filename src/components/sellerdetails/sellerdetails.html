@@ -41,14 +41,19 @@
 
 
  <script type="text/ng-template" id="AllProducts.html">
-	
+
 	
 	<div class="container-fluid" style="padding-top:40px;">
 		<div class="row">
 			<div class="col-sm-1"> </div>
 			<div class="col-sm-10">
 				<ul class="list-inline">
+					<div ng-hide="NoProducts">
+						<h1 style="text-align:center">This Sellers has no Products!! </h1>
+					</div> 
 					<li  ng-repeat="p in products"> 
+						
+
 			 			<div class="ih-item square effect3 bottom_to_top"><a class="disabled">
 			 				<div class="img">
 			 				<img  src="{{p.imagePath}}" alt="{{p.name}}"> </img>
@@ -75,15 +80,15 @@
      </div>
   </script>
 
-  	
-
-
   <script type="text/ng-template" id="TopTen.html">
 	<div class="container-fluid" style="padding-top:40px;">
 		<div class="row">
 			<div class="col-sm-1"> </div>
 			<div class="col-sm-10">
 				<ul class="list-inline">
+					<div ng-hide="NoProducts">
+						<h1 style="text-align:center">This Sellers has no Products!! </h1>
+					</div>
 				    <li  ng-repeat="p in products | orderBy: '-quantitySold' | limitTo:10 "> 
 						<div class="ih-item square effect3 bottom_to_top"><a class="disabled">
 							<div class="img">
