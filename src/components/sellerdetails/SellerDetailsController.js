@@ -51,9 +51,9 @@ function SellerDetailsController($scope, $routeParams, AppResource, $uibModal, t
 		});
 	};
 
-	$scope.onEditProduct = function onEditProduct() {
-		var testProdId = 2;
-		var editProduct = _.find($scope.products, function(o){ return o.id === testProdId;});
+	$scope.onEditProduct = function onEditProduct(id) {
+		//var testProdId = 2;
+		var editProduct = _.find($scope.products, function(o){ return o.id === id;});
 
 		//console.log($scope.products[1]);
 		console.log("CURRENT: " + editProduct.id);
