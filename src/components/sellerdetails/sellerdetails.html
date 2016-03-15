@@ -19,13 +19,6 @@
 	<hr />
 
 
-	<!--<div class="row" style="padding-left:60px">
-    	<ul class="nav nav-tabs" style="border-bottom: none!important">
-      		<li ng-repeat="tab in tabs" ng-class="{active:isActive(tab.tabUrl)}"  ng-click="onClick(tab)"> <a  class="disabled">{{tab.title}} </a>
-      		</li>
-    	</ul>
-    </div> -->
-
     <div class="row" style="padding-left:60px">
     <div class="col-md-1" > </div>
         <div class="col-md-4" >
@@ -37,7 +30,7 @@
     	</div>
  
     	<div class="col-md-7" >
-    		<h1 style="color:#0074D9;text-shadow: 2px 2px 2px #001f3f"> {{TabTitle}}</h1> 
+    		<h1 style="text-shadow: 1px 1px 1px #001f3f"> {{TabTitle}}</h1> 
    		 </div>
 
     	<div ng-include="activeTab" style="padding-top:50px" ></div>
@@ -125,8 +118,4 @@
 
   </script>
 </div>
-
-
-		
-
 
