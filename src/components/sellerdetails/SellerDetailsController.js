@@ -15,11 +15,9 @@ function SellerDetailsController($scope, $routeParams, AppResource, $uibModal, t
 
 
 		  if (products.length < 1) {
-		  	console.log( "LENGDIN: " + products.length);
+		  	//console.log( "LENGDIN: " + products.length);
 		  	$scope.NoProducts = false;
 		  }
-
-
   	
 	});
 
@@ -82,19 +80,31 @@ function SellerDetailsController($scope, $routeParams, AppResource, $uibModal, t
 	$scope.tabs = [{
       
       title: 'All Products',
-      url: 'AllProducts.html'
+      url: 'AllProducts'
     },{
       title: 'Top Ten',
-      url: 'TopTen.html'
+      url: 'TopTen'
     }];
 
-    $scope.activeTab = 'AllProducts.html';  
+
+    $scope.activeTab = 'AllProducts';  
+
+	$scope.TabTitle = ' All Products';
 
     $scope.onClick = function(tab) {
       $scope.activeTab = tab.url;
+      
+
     };
 
     $scope.isActive = function(tabUrl) {
+    	$scope.TabTitle = $scope.activeTab;
+    	if ($scope.TabTitle === 'TopTen') {
+      		$scope.TabTitle = 'Top Ten';
+      }
+      else if ($scope.TabTitle === 'AllProducts'){
+      	$scope.TabTitle = 'All Products';
+      }
       return tabUrl === $scope.activeTab;
     };
 

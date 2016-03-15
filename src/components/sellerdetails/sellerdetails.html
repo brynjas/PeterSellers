@@ -1,9 +1,9 @@
 
-<div>
-	<div class="container" style="margin-top:100px; padding: 40px" >
+<div id="mainWindow">
+	<div class="container" style="margin-top:100px"  >
 		<div class="row"> 
 			<div class="col-md-2"> 
-			 <img class="img-responsive img-thumbnail" src="{{seller.imagePath}}" alt="{{seller.name}}" style="width:150px;height:150px"> </img>
+			 <img class="img-responsive img-thumbnail" src="{{seller.imagePath}}" alt="{{seller.name}}" style="width:150px;height:150px;  box-shadow: 3px 3px grey"> </img>
 
 			</div>
 			<div class="col-md-6"> 
@@ -27,20 +27,29 @@
     </div> -->
 
     <div class="row" style="padding-left:60px">
-    	<ul class="nav nav-tabs" role="tablist" style="border-bottom:none!important" >
+    <div class="col-md-1" > </div>
+        <div class="col-md-4" >
+	    	<ul class="nav nav-tabs" role="tablist" style="border-bottom:none!important" >
+	      		<li ng-repeat="tab in tabs" ng-class="{active:isActive(tab.tabUrl)}"  ng-click="onClick(tab)" style="border-style: outset;
+	   			 border-width: 1px 1px 0 1px" > <a  class="disabled">{{tab.title}} </a>
+	      		</li>
+	    	</ul>
+    	</div>
+ 
+    	<div class="col-md-7" >
+    		<h1 style="color:#0074D9;text-shadow: 2px 2px 2px #001f3f"> {{TabTitle}}</h1> 
+   		 </div>
 
-      		<li ng-repeat="tab in tabs" ng-class="{active:isActive(tab.tabUrl)}"  ng-click="onClick(tab)" style="border-style: outset;
-    border-width: 1px 1px 0 1px" > <a  class="disabled">{{tab.title}} </a>
-      		</li>
-    	</ul>
-    </div>
+    	<div ng-include="activeTab" style="padding-top:50px" ></div>
+    	  <div ng-include="TabTitle" ></div>
+
    
-    <div ng-include="activeTab" ></div>
+       </div>
 
  </div>
 
 
- <script type="text/ng-template" id="AllProducts.html">
+ <script type="text/ng-template" id="AllProducts">
 
 	
 	<div class="container-fluid" style="padding-top:40px;">
@@ -80,7 +89,7 @@
      </div>
   </script>
 
-  <script type="text/ng-template" id="TopTen.html">
+  <script type="text/ng-template" id="TopTen">
 	<div class="container-fluid" style="padding-top:40px;">
 		<div class="row">
 			<div class="col-sm-1"> </div>
