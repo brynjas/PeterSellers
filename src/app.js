@@ -8,6 +8,7 @@ angular.module("project3App", ["ngRoute", "ui.bootstrap","tableSort" ,"sharedSer
 	}).when("/sellerdetails/:id" , {
 		controller: "SellerDetailsController",
 		templateUrl: "components/sellerdetails/sellerdetails.html"
+		//css: "components/sellerdetails/sellerdetails.css"
     });
 
 });
