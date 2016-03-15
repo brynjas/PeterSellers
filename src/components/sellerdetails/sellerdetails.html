@@ -27,20 +27,28 @@
     </div> -->
 
     <div class="row" style="padding-left:60px">
+        <div class="col-md-3" >
+
     	<ul class="nav nav-tabs" role="tablist" style="border-bottom:none!important" >
 
       		<li ng-repeat="tab in tabs" ng-class="{active:isActive(tab.tabUrl)}"  ng-click="onClick(tab)" style="border-style: outset;
     border-width: 1px 1px 0 1px" > <a  class="disabled">{{tab.title}} </a>
       		</li>
     	</ul>
-    </div>
+    	</div>
+ 
+    	<div class="col-md-8" >
+    		<h4 ng-style="webkit-animation: fadeInRight 0.5s"> {{activeTab}}</h4> 
+   		 </div>
+
+    	<div ng-include="activeTab" ></div>
    
-    <div ng-include="activeTab" ></div>
+       </div>
 
  </div>
 
 
- <script type="text/ng-template" id="AllProducts.html">
+ <script type="text/ng-template" id="AllProducts">
 
 	
 	<div class="container-fluid" style="padding-top:40px;">
@@ -80,7 +88,7 @@
      </div>
   </script>
 
-  <script type="text/ng-template" id="TopTen.html">
+  <script type="text/ng-template" id="TopTen">
 	<div class="container-fluid" style="padding-top:40px;">
 		<div class="row">
 			<div class="col-sm-1"> </div>

@@ -32,13 +32,13 @@ function SellerDetailsController($scope, $routeParams, AppResource) {
 	$scope.tabs = [{
       
       title: 'All Products',
-      url: 'AllProducts.html'
+      url: 'AllProducts'
     },{
       title: 'Top Ten',
-      url: 'TopTen.html'
+      url: 'TopTen'
     }];
 
-    $scope.activeTab = 'AllProducts.html';  
+    $scope.activeTab = 'AllProducts';  
 
 
 
